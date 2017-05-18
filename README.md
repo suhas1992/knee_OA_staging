@@ -30,24 +30,32 @@ For every image, faster R-CNN predicts 300 knee-joint region proposals with prob
 1.) Install CUDA on your system. *Note:* Even if using a CPU, CUDA libraries are necesary to run Caffe.  
 
 2.) Python packages needed : 
-      •	Cython 
-      •	Numpy
-      •	Opencv-python
-      •	Easydict
-      •	Matplotlib
-      •	Scikit-image
-      •	Protobuf
-      •	Scikit-learn 
-      •	Pyyaml
+      •	cython 
+      •	numpy
+      •	ppencv-python
+      •	easydict
+      •	matplotlib
+      •	scikit-image
+      •	protobuf
+      •	scikit-learn 
+      •	pyyaml
 
 #### Steps to Follow
-1.) Build the Cython Modules:
+1.) Clone the repository
 ```Shell
-cd $FRCN_ROOT/lib
+git clone --recursive https://github.com/suhas1992/knee_OA_staging.git
+```
+2.) Build the Cython Modules: 
+```Shell
+cd knee_OA_staging/lib
 make
 ```
 
-2.)    
+3.) Build Caffe and Pycaffe
+```Shell
+cd knee_OA_staging/caffe-fast-rcnn
+make -j8 && make pycaffe
+```
 
 ###  Reference
 
