@@ -1,5 +1,6 @@
 # Automatically quantifying knee osteoarthritis severity from X-ray images using a faster R-CNN model #
- 
+
+*Authors: Suhas Suresha, Eni Halilaj and Łukasz Kidziński*
 ### Introduction
 
 This code respoitory, implemented in Python, can be used to automatically quantify knee osteoarthritis severity (using the Kellgren & Lawrence grading system) from X-ray images using a trained faster region convolutional neural network (R-CNN) model. The model was trained on a dataset consisting of 4214 X-ray images of the knees (including left and right leg) obtained from the Osteoarthritis Initiative (OAI) dataset, courtesy of the Mobilize Center at Stanford University. 
