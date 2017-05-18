@@ -1,0 +1,93 @@
++ echo Logging output to experiments/logs/faster_rcnn_alt_opt_VGG16_.txt.2017-04-30_18-43-38
+Logging output to experiments/logs/faster_rcnn_alt_opt_VGG16_.txt.2017-04-30_18-43-38
++ ./tools/train_faster_rcnn_alt_opt.py --gpu 0 --net_name VGG16 --weights data/imagenet_models/VGG16.v2.caffemodel --imdb voc_2007_trainval --cfg experiments/cfgs/faster_rcnn_alt_opt.yml
+Called with args:
+Namespace(cfg_file='experiments/cfgs/faster_rcnn_alt_opt.yml', gpu_id=0, imdb_name='voc_2007_trainval', net_name='VGG16', pretrained_model='data/imagenet_models/VGG16.v2.caffemodel', set_cfgs=None)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Stage 1 RPN, init from ImageNet model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Init model: data/imagenet_models/VGG16.v2.caffemodel
+Using config:
+{'DATA_DIR': '/home/suhas/code_repo/py-faster-rcnn/data',
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXP_DIR': 'faster_rcnn_alt_opt',
+ 'GPU_ID': 0,
+ 'MATLAB': 'matlab',
+ 'MODELS_DIR': '/home/suhas/code_repo/py-faster-rcnn/models/pascal_voc',
+ 'PIXEL_MEANS': array([[[ 102.9801,  115.9465,  122.7717]]]),
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/suhas/code_repo/py-faster-rcnn',
+ 'TEST': {'BBOX_REG': True,
+          'HAS_RPN': True,
+          'MAX_SIZE': 1000,
+          'NMS': 0.3,
+          'PROPOSAL_METHOD': 'selective_search',
+          'RPN_MIN_SIZE': 16,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 300,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'SCALES': [600],
+          'SVM': False},
+ 'TRAIN': {'ASPECT_GROUPING': True,
+           'BATCH_SIZE': 128,
+           'BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'BBOX_NORMALIZE_MEANS': [0.0, 0.0, 0.0, 0.0],
+           'BBOX_NORMALIZE_STDS': [0.1, 0.1, 0.2, 0.2],
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': False,
+           'BBOX_REG': False,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'HAS_RPN': True,
+           'IMS_PER_BATCH': 1,
+           'MAX_SIZE': 1000,
+           'PROPOSAL_METHOD': 'gt',
+           'RPN_BATCHSIZE': 256,
+           'RPN_BBOX_INSIDE_WEIGHTS': [1.0, 1.0, 1.0, 1.0],
+           'RPN_CLOBBER_POSITIVES': False,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 16,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POSITIVE_WEIGHT': -1.0,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'SCALES': [600],
+           'SNAPSHOT_INFIX': 'stage1',
+           'SNAPSHOT_ITERS': 10000,
+           'USE_FLIPPED': True,
+           'USE_PREFETCH': False},
+ 'USE_GPU_NMS': True}
+Loaded dataset `voc_2007_trainval` for training
+Set proposal method: gt
+Appending horizontally-flipped training examples...
+Process Process-1:
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 258, in _bootstrap
+    self.run()
+  File "/usr/lib/python2.7/multiprocessing/process.py", line 114, in run
+    self._target(*self._args, **self._kwargs)
+  File "./tools/train_faster_rcnn_alt_opt.py", line 122, in train_rpn
+    roidb, imdb = get_roidb(imdb_name)
+  File "./tools/train_faster_rcnn_alt_opt.py", line 67, in get_roidb
+    roidb = get_training_roidb(imdb)
+  File "/home/suhas/code_repo/py-faster-rcnn/tools/../lib/fast_rcnn/train.py", line 118, in get_training_roidb
+    imdb.append_flipped_images()
+  File "/home/suhas/code_repo/py-faster-rcnn/tools/../lib/datasets/imdb.py", line 106, in append_flipped_images
+    boxes = self.roidb[i]['boxes'].copy()
+  File "/home/suhas/code_repo/py-faster-rcnn/tools/../lib/datasets/imdb.py", line 67, in roidb
+    self._roidb = self.roidb_handler()
+  File "/home/suhas/code_repo/py-faster-rcnn/tools/../lib/datasets/pascal_voc.py", line 103, in gt_roidb
+    for index in self.image_index]
+  File "/home/suhas/code_repo/py-faster-rcnn/tools/../lib/datasets/pascal_voc.py", line 182, in _load_pascal_annotation
+    tree = ET.parse(filename)
+  File "/usr/lib/python2.7/xml/etree/ElementTree.py", line 1182, in parse
+    tree.parse(source, parser)
+  File "/usr/lib/python2.7/xml/etree/ElementTree.py", line 647, in parse
+    source = open(source, "rb")
+IOError: [Errno 2] No such file or directory: '/home/suhas/code_repo/py-faster-rcnn/data/VOCdevkit2007/VOC2007/Annotations/000001.xml'
