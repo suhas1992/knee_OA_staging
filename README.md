@@ -16,9 +16,9 @@ This approach combines RPN, which predicts knee-joint region and object classifi
 
 For every image, faster R-CNN predicts 300 knee-joint region proposals with probability estimates (confidence scores) for all classes (KL scores from 0-4) for each of the proposals. Hence for each image, we create a confidence score matrix with rows corresponding to the knee-joint proposals and the columns corresponding to the probability estimates for each label. In order to predict the label for a given image from the faster R-CNN predictions, we implemented the following methodologies:
 
-1.) **Maximum average confidence score : ** We choose the label with the highest average confidence score over all the predicted knee-joint region proposals.
+1.) **Maximum average confidence score :** We choose the label with the highest average confidence score over all the predicted knee-joint region proposals.
 
-2.) **Support vector machine classifier : ** We train a support vector machine (SVM) classifier on the training images with their confidence score matrix as input feature.
+2.) **Support vector machine classifier :** We train a support vector machine (SVM) classifier on the training images with their confidence score matrix as input feature.
 
 3.) **Random forest classifier :** We train a random forest classifier on the training images with their confidence score matrix as input feature. 
 
