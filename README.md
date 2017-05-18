@@ -24,7 +24,7 @@ For every image, faster R-CNN predicts 300 knee-joint region proposals with prob
 
 4.) **Multi-layer perceptron classifier :** We train a multi-layer perceptron classifier on the training images with their confidence score matrix as input feature. 
 
-### Using the code repository to qunatify knee OA severity
+### Using the code repository to qunatify knee OA severity 
 
 #### Requirements
 1.) Install CUDA on your system. *Note:* Even if using a CPU, CUDA libraries are necesary to run Caffe.  
@@ -51,11 +51,32 @@ cd knee_OA_staging/lib
 make
 ```
 
-3.) Build Caffe and Pycaffe
+3.) Build Caffe and Pycaffe:
 ```Shell
 cd knee_OA_staging/caffe-fast-rcnn
 make -j8 && make pycaffe
 ```
+
+4.) Download trained faster R-CNN model to quantify knee OA severity:
+```Shell
+cd knee_OA_staging/data
+mkdir faster_rcnn_models
+cd faster_rcnn_models
+wget https://transfer.sh/Czqow/VGG16_faster_rcnn_final.caffemodel
+```
+
+5.) Demo images are available in knee_OA_staging/data/test_images. To test the model on the demo images, do the following:
+```Shell
+cd knee_OA_staging
+python tools/demo_all_predictions.py [GPU_ID] [CPU] [model] 
+# GPU_ID : GPU you want to train on
+# CPU : Use CPU mode (overrides --gpu)
+# model : Options from {avg, SVM, Random_forest, MLP}. Used to predict the label for a given image from the faster R-CNN predictions. 
+# Ex: python tools/demo_all_predictions.py --cpu --model MLP 
+```
+The output images are available in knee_OA_staging/data/output_test_images.
+
+6.) To test the model on any new X-ray image (only works on X-ray image with one knee), add the image in knee_OA_staging/data/test_images and repeat Step 5 above. Output will be avilable in knee_OA_staging/data/output_test_images. 
 
 ###  Reference
 
