@@ -24,6 +24,29 @@ For every image, faster R-CNN predicts 300 knee-joint region proposals with prob
 
 4.) **Multi-layer perceptron classifier :** We train a multi-layer perceptron classifier on the training images with their confidence score matrix as input feature. 
 
+### Using the code repository to qunatify knee OA severity
+
+#### Requirements
+1.) Install CUDA on your system. *Note:* Even if using a CPU, CUDA libraries are necesary to run Caffe.  
+
+2.) Python packages needed : 
+      •	Cython 
+      •	Numpy
+      •	Opencv-python
+      •	Easydict
+      •	Matplotlib
+      •	Scikit-image
+      •	Protobuf
+      •	Scikit-learn 
+      •	Pyyaml
+
+#### Steps to Follow
+1.) Build the Cython Modules
+     ```Shell
+     cd $FRCN_ROOT/lib
+     make
+     ```
+
 ###  Reference
 
 A majority of the code repsoitory is borrowed from [Faster R-CNN](https://github.com/rbgirshick/py-faster-rcnn) by Shaoqing Ren, Kaiming He, Ross Girshick and Jian Sun. 
