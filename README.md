@@ -81,4 +81,4 @@ The output images are available in knee_OA_staging/data/output_test_images.
 
 ###  Reference
 
-A majority of the code repsoitory is borrowed from [Faster R-CNN](https://github.com/rbgirshick/py-faster-rcnn) by Shaoqing Ren, Kaiming He, Ross Girshick and Jian Sun. 
+A significant portion of the code repsoitory is borrowed from [Faster R-CNN](https://github.com/rbgirshick/py-faster-rcnn) by Shaoqing Ren, Kaiming He, Ross Girshick and Jian Sun. 
