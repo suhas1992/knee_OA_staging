@@ -42,10 +42,11 @@ For every image, faster R-CNN predicts 300 knee-joint region proposals with prob
 
 #### Steps to Follow
 1.) Build the Cython Modules
-     ```Shell
-     cd $FRCN_ROOT/lib
-     make
-     ```
+         ```Shell
+         cd $FRCN_ROOT/lib
+         make
+         ```
+ 2.)    
 
 ###  Reference
 
