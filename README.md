@@ -33,7 +33,7 @@ For every image, faster R-CNN predicts 300 knee-joint region proposals with prob
 2.) Python packages needed : 
       •	cython 
       •	numpy
-      •	ppencv-python
+      •	opencv-python
       •	easydict
       •	matplotlib
       •	scikit-image
